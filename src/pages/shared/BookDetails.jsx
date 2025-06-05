@@ -46,10 +46,17 @@ const BookDetails = () => {
   };
 
   const confirmOrder = () => {
-    axios
-      .post(`http://localhost:3000/place-order/${_id}`, {
+    
+    const orderInfo = {
+      bookId: _id,
         borowwerEmail: user.email,
-      })
+    };
+
+    axios
+      .post(`http://localhost:3000/place-order/${_id}`, 
+        orderInfo
+
+      )
       .then(() => {
         toast.success("Borrowed successfully");
         setBook((prev) => ({

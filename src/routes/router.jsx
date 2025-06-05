@@ -14,6 +14,7 @@ import History from "../pages/Home/Categories/History";
 import Thriller from "../pages/Home/Categories/Thriller";
 import Fiction from "../pages/Home/Categories/Fiction";
 import BookDetails from "../pages/shared/BookDetails";
+import MyBorrow from "../pages/My-orders/MyBorrow";
 
 const router = createBrowserRouter([
   {
@@ -112,6 +113,15 @@ const router = createBrowserRouter([
         ),
         element: <Thriller></Thriller>,
       },
+
+      {
+        path: 'my-orders',
+        element: (
+            <PrivateRoute>
+                <MyBorrow></MyBorrow>
+            </PrivateRoute>
+        )
+      }
 
       
     ],
