@@ -142,7 +142,8 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to='/my-orders'
+            // {`/my-plants/${user?.email}`}
+              to={`/my-orders/${user?.email}`}
               className={({ isActive }) => (isActive ? "text-indigo-500" : "")}
             >
             Borrowed Books

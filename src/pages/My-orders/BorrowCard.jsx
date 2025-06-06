@@ -1,7 +1,38 @@
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
-const BorrowCard = ({ book }) => {
+const BorrowCard = ({ book , orders, setOrders }) => {
   const { _id, name, author, quantity, image, category } = book;
+
+  const handleReturn = (_id) => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You again borrow the book if it is available.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, return it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(`http://localhost:3000/return_book/${_id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.deletedCount) {
+                Swal.fire({
+                  title: "Returned!",
+                  text: "Your book has been returned.",
+                  icon: "success",
+                });
+                const remainingOrders = orders.filter((book) => book._id !== _id);
+                setOrders(remainingOrders);
+              }
+            });
+        }
+      });
+    };
 
   return (
     <div className="card card-side bg-base-100 shadow-md border rounded-xl p-4 flex flex-col md:flex-row items-center gap-4">
@@ -26,7 +57,9 @@ const BorrowCard = ({ book }) => {
 
       {/* Actions */}
       <div className="md:self-start w-full md:w-auto">
-        <button className="btn btn-error btn-sm w-full">Cancel Order</button>
+        
+          <button onClick={() => handleReturn(_id)} className="btn btn-error btn-sm w-full">Return Book</button>
+        
       </div>
     </div>
   );
