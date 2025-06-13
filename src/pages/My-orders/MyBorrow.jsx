@@ -1,21 +1,22 @@
 // import axios from 'axios'
 // import { useContext } from 'react'
-import { useState } from "react";
+import { useContext, useState } from "react";
 //import { AuthContext } from '../../Provider/AuthProvider'
 import BorrowCard from "./BorrowCard";
 import { Link, useLoaderData } from "react-router";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const MyBorrow = () => {
-  //const { user } = useContext(AuthContext)
-  // const [orders, setOrders] = useState([]);
-
-  //        const [borrow,setBorrow] = useState(data)
-
+  
   const initialBook = useLoaderData();
 
   console.log(initialBook);
 
   const [orders, setOrders] = useState(initialBook);
+
+  const {user} = useContext(AuthContext);
+
+  console.log('token in the context',user.accessToken);
 
   // useEffect(() => {
   //   axios(`http://localhost:3000/my-orders/${user?.email}`)
@@ -51,6 +52,7 @@ const MyBorrow = () => {
               key={book._id}
               book={book}
               orders={orders}
+              // (user.accessToken)
               setOrders={setOrders}
             />
           ))}

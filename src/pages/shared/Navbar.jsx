@@ -107,10 +107,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex gap-2 items-center">
-          <img
+          {/* <img
             src="https://i.postimg.cc/FFCdWY6S/green-eco-garden-plant-by-marcololstudio-brandcrowd.png"
             className="h-10"
-          />
+          /> */}
+          <p className="font-bold">LibraryGhar</p>
         </div>
       </div>
 
