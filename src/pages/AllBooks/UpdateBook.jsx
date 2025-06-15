@@ -23,7 +23,7 @@ const UpdateBook = () => {
       image,
     };
 
-    fetch(`http://localhost:3000/book/${data?._id}`, {
+    fetch(`https://library-server-self-theta.vercel.app/book/${data?._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
