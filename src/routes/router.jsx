@@ -126,16 +126,17 @@ const router = createBrowserRouter([
 
 
       {
-        path: 'my-orders/:email',
-          loader: ({ params }) => fetch(`http://localhost:3000/my-orders/${params.email}`),
-        hydrateFallbackElement: (
-          <span className="loading loading-bars loading-xl"></span>
-        ),
+        path: '/my-orders',
+        //path: 'my-orders/:email',
+        //   loader: ({ params }) => fetch(`http://localhost:3000/my-orders/${params.email}`),
+        // hydrateFallbackElement: (
+        //   <span className="loading loading-bars loading-xl"></span>
+        // ),
         element: (
             <PrivateRoute>
                 <MyBorrow></MyBorrow>
             </PrivateRoute>
-        )
+        ),
       },
 
       

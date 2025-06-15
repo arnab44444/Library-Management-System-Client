@@ -59,7 +59,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-6 ">
       <div className="card mx-auto mt-10 bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-4">
         <form onSubmit={handleRegister} className="card-body">
           <h1 className="text-3xl font-bold text-center">Register now!</h1>

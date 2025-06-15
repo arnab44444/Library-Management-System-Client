@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
-import ImageSlider from './ImageSlider';
 import Categories from './Categories/Categories';
 import BookReviewSection from './BookReviewSection';
 import About from './About';
+import ImageSlider from './ImageSlider';
+import HomeAnimation from './HomeAnimation';
+import Banner from './Banner';
 
 const Home = () => {
 
@@ -12,7 +14,15 @@ const Home = () => {
 
     return (
         <div>
-        <ImageSlider></ImageSlider>
+
+        <Banner></Banner>
+
+        {/* <HomeAnimation></HomeAnimation> */}
+
+        {/* <ImageSlider></ImageSlider>  */}
+
+        
+
 
         <div className='mx-auto'>
             <Categories></Categories>

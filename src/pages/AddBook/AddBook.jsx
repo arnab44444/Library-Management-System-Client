@@ -51,7 +51,7 @@ const AddBook = () => {
       
       <div className="p-4 bg-gray-300">
         <div className="p-12 text-center space-y-4">
-          <h1 className="text-3xl font-bold text-green-600">Add Book</h1>
+          <h1 className="text-3xl font-bold text-blue-600">Add Book</h1>
           <p>
             Books are a source of knowledge and imagination. They can teach,
             entertain, and inspire. Every book holds a world of information that
@@ -168,7 +168,7 @@ const AddBook = () => {
           {/* Add Book Button */}
           <input
             type="submit"
-            className="btn w-full bg-green-500 hover:bg-green-800 hover:text-white"
+            className="btn w-full bg-blue-500 hover:bg-blue-800 hover:text-white"
             value="Add Book"
           />
 

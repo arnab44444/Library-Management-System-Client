@@ -17,13 +17,13 @@ const BookCard = ({ book }) => {
             </div>
           </div>
         </td>
-        <td className="font-semibold text-green-400 ">{name}</td>
+        <td className="font-semibold text-blue-600 ">{name}</td>
         <td className="capitalize">{category}</td>
         <td className="text-left">{author}</td>
 
         <td>
           <Link to={`/updateBook/${_id}`}>
-            <button className="btn btn-sm md:btn-md bg-green-500 hover:bg-green-700">
+            <button className="btn btn-sm md:btn-md bg-blue-500 hover:bg-blue-700">
              Update
             </button>
           </Link>

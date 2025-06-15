@@ -6,8 +6,8 @@ const Categories = () => {
   return (
     <div>
       <h2 className="my-10 font-bold text-2xl text-center">Categories</h2>
-      <div className="grid sm:grid-cols-1 lg:grid-cols-4 gap-5 md:grid-cols-2">
-        <div className="card bg-base-100  shadow-sm">
+      <div className="grid sm:grid-cols-1  lg:grid-cols-4 gap-5 md:grid-cols-2">
+        <div className="card bg-base-100  shadow-sm border">
           <figure>
             <img
               src="https://i.ibb.co/jPk21v6g/Novel-Logo.jpg"
@@ -30,7 +30,7 @@ const Categories = () => {
           </div>
         </div>
 
-        <div className="card bg-base-100  shadow-sm">
+        <div className="card bg-base-100  shadow-sm border">
           <figure>
             <img
               src="https://i.ibb.co/FbNjkpkd/history-minimal-thin-line-icons-set-vector.jpg"
@@ -54,7 +54,7 @@ const Categories = () => {
           </div>
         </div>
 
-        <div className="card bg-base-100  shadow-sm">
+        <div className="card bg-base-100  shadow-sm border">
           <figure>
             <img
               src="https://i.ibb.co/xKm1VbpS/663e0fe6775379546a6c090312fc8cd7.jpg"
@@ -77,7 +77,7 @@ const Categories = () => {
           </div>
         </div>
 
-        <div className="card bg-base-100  shadow-sm">
+        <div className="card bg-base-100  shadow-sm border">
           <figure>
             <img
               src="https://i.ibb.co/fY0snczN/fiction.jpg"

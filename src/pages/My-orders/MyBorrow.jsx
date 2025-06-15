@@ -1,22 +1,24 @@
 // import axios from 'axios'
 // import { useContext } from 'react'
-import { useContext, useState } from "react";
+import { Suspense, useContext } from "react";
 //import { AuthContext } from '../../Provider/AuthProvider'
-import BorrowCard from "./BorrowCard";
-import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
+import BorrowList from "./BorrowList";
+import useBorrowApi from "../../api/useBorrowApi";
+// import { myBorrowPromise } from "../../api/borrowApi";
 
 const MyBorrow = () => {
-  
-  const initialBook = useLoaderData();
+  // const initialBook = useLoaderData();
 
-  console.log(initialBook);
+  // console.log(initialBook);
 
-  const [orders, setOrders] = useState(initialBook);
+  // const [orders, setOrders] = useState(initialBook);
 
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  console.log('token in the context',user.accessToken);
+  const {myBorrowPromise} = useBorrowApi();
+
+  console.log("token in the context", user.accessToken);
 
   // useEffect(() => {
   //   axios(`http://localhost:3000/my-orders/${user?.email}`)
@@ -32,6 +34,22 @@ const MyBorrow = () => {
 
   return (
     <div>
+      <Suspense
+        fallback={<span className="loading loading-bars loading-xl"></span>}
+      >
+        <BorrowList myBorrowPromise={myBorrowPromise(user.email)}></BorrowList>
+        {/* <ApplicationList
+          myApplicationsPromise={myApplicationsPromise(user.email)}
+        ></ApplicationList> */}
+      </Suspense>
+    </div>
+  );
+};
+
+export default MyBorrow;
+
+//{
+  /* <div>
       {orders.length === 0 ? (
         <div className="text-center py-20">
           <h2 className="text-2xl font-bold text-error mb-4">
@@ -46,20 +64,17 @@ const MyBorrow = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-12">
-          {/* Coffee Cards */}
-          {orders.map((book) => (
-            <BorrowCard
-              key={book._id}
-              book={book}
-              orders={orders}
-              // (user.accessToken)
-              setOrders={setOrders}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default MyBorrow;
+          {/* Coffee Cards */
+//}
+//       {orders.map((book) => (
+//         <BorrowCard
+//           key={book._id}
+//           book={book}
+//           orders={orders}
+//           // (user.accessToken)
+//           setOrders={setOrders}
+//         />
+//       ))}
+//     </div>
+//   )}
+// </div>

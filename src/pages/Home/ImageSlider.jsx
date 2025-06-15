@@ -5,12 +5,14 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import HomeAnimation from "./HomeAnimation";
 
 const ImageSlider = () => {
   const images = [
-    "https://i.ibb.co/SXSmY9yz/fpcxvlp1bp171.jpg",
-    "https://i.ibb.co/3yBP0B4T/dacaa1c78843c6e0f94220d2cf7f42b7.jpg",
-    "https://i.ibb.co/nq1fVpCN/square-houseplant-tips.jpg",
+    // "https://i.ibb.co/rKBXdqxF/inspire-a-love-of-reading-header-the-reading-roundup-1.jpg",
+    <HomeAnimation></HomeAnimation>,
+    "https://i.ibb.co/mFM7NdvG/library-slider-img-3-1653482722.jpg",
+    "https://i.ibb.co/bRqqMWwG/WHAT-IS-THE-PURPOSE-OF-A-LIBRARY-MANAGEMENT-SYSTEM-min.png",
   ];
 
   return (
