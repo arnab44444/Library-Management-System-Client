@@ -50,7 +50,7 @@ const AllBooks = () => {
 
             <div className="mt-3">
               <a href={`/updateBook/${book._id}`}>
-                <button className="btn btn-sm md:btn-md bg-green-500 hover:bg-green-700">
+                <button className="btn w-full bg-blue-500 hover:bg-blue-700">
                   Update
                 </button>
               </a>

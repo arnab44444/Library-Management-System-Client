@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const BorrowCard = ({ book, orders, setOrders }) => {
   const { _id, name, author, quantity, image, category } = book;
+
+  const [books, setBooks] = useState(book);
 
   const handleReturn = (_id) => {
     Swal.fire({
@@ -15,9 +18,12 @@ const BorrowCard = ({ book, orders, setOrders }) => {
       confirmButtonText: "Yes, return it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://library-server-self-theta.vercel.app/return_book/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://library-server-self-theta.vercel.app/return_book/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
@@ -26,6 +32,13 @@ const BorrowCard = ({ book, orders, setOrders }) => {
                 text: "Your book has been returned.",
                 icon: "success",
               });
+              // extra
+
+              setBooks((prev) => ({
+                ...prev,
+                quantity: prev.quantity + 1,
+              }));
+
               const remainingOrders = orders.filter((book) => book._id !== _id);
               setOrders(remainingOrders);
             }
@@ -57,7 +70,10 @@ const BorrowCard = ({ book, orders, setOrders }) => {
 
       {/* Actions */}
       <div className="md:self-start w-full md:w-auto">
-        <button onClick={() => handleReturn(_id)} className="btn btn-error btn-sm w-full">
+        <button
+          onClick={() => handleReturn(_id)}
+          className="btn btn-error btn-sm w-full"
+        >
           Return Book
         </button>
       </div>
