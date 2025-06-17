@@ -17,7 +17,7 @@ const BorrowCard = ({ book, orders, setOrders }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:3000/return_book/${_id}`,
+          `https://library-server-self-theta.vercel.app/return_book/${_id}`,
           {
             method: "DELETE",
           }
@@ -47,7 +47,7 @@ const BorrowCard = ({ book, orders, setOrders }) => {
   return (
     <div className="card w-full md:w-80 bg-base-100 dark:bg-neutral shadow-lg border border-base-300 dark:border-neutral-content rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
       {/* Book Image */}
-      <figure className="h-56 bg-base-200 dark:bg-neutral-focus overflow-hidden">
+      <figure className="h-56 bg-base-200 dark:bg-neutral-focus object-cover">
         <img
           src={image}
           alt={name}
