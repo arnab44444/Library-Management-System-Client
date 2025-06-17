@@ -20,3 +20,5 @@ const Novel = () => {
 };
 
 export default Novel;
+
+// updated
