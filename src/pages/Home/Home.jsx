@@ -6,6 +6,8 @@ import About from './About';
 import ImageSlider from './ImageSlider';
 import HomeAnimation from './HomeAnimation';
 import Banner from './Banner';
+import HappyClients from './HappyClients';
+import StatsSection from './StatsSection';
 
 const Home = () => {
 
@@ -27,7 +29,9 @@ const Home = () => {
         <div className='mx-auto'>
             <Categories></Categories>
             <BookReviewSection></BookReviewSection>
+            <HappyClients></HappyClients>
             <About></About>
+            <StatsSection></StatsSection>
         </div>
             
         </div>

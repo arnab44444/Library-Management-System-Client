@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const BorrowCard = ({ book, orders, setOrders }) => {
   const { _id, name, author, quantity, image, category } = book;
-
   const [books, setBooks] = useState(book);
 
   const handleReturn = (_id) => {
@@ -19,7 +17,7 @@ const BorrowCard = ({ book, orders, setOrders }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://library-server-self-theta.vercel.app/return_book/${_id}`,
+          `http://localhost:3000/return_book/${_id}`,
           {
             method: "DELETE",
           }
@@ -32,7 +30,6 @@ const BorrowCard = ({ book, orders, setOrders }) => {
                 text: "Your book has been returned.",
                 icon: "success",
               });
-              // extra
 
               setBooks((prev) => ({
                 ...prev,
@@ -48,15 +45,19 @@ const BorrowCard = ({ book, orders, setOrders }) => {
   };
 
   return (
-    <div className="card card-side bg-base-100 shadow-md border rounded-xl p-4 flex flex-col md:flex-row items-center gap-4">
-      {/* Image */}
-      <figure className="w-full md:w-40 h-40 overflow-hidden rounded-xl">
-        <img src={image} alt={name} className="w-full h-full object-cover" />
+    <div className="card w-full md:w-80 bg-base-100 dark:bg-neutral shadow-lg border border-base-300 dark:border-neutral-content rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+      {/* Book Image */}
+      <figure className="h-56 bg-base-200 dark:bg-neutral-focus overflow-hidden">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+        />
       </figure>
 
-      {/* Content */}
-      <div className="flex-1 w-full text-base-content">
-        <h2 className="text-lg font-bold text-primary">{name}</h2>
+      {/* Book Info */}
+      <div className="p-5 space-y-2 text-base-content dark:text-neutral-content">
+        <h2 className="text-lg font-bold text-primary dark:text-secondary">{name}</h2>
         <p className="text-sm">
           <span className="font-semibold">Author:</span> {author}
         </p>
@@ -64,15 +65,12 @@ const BorrowCard = ({ book, orders, setOrders }) => {
           <span className="font-semibold">Category:</span> {category}
         </p>
         <p className="text-sm">
-          <span className="font-semibold">Quantity:</span> {quantity}
+          <span className="font-semibold">Available:</span> {quantity}
         </p>
-      </div>
 
-      {/* Actions */}
-      <div className="md:self-start w-full md:w-auto">
         <button
           onClick={() => handleReturn(_id)}
-          className="btn btn-error btn-sm w-full"
+          className="btn btn-error btn-sm w-full mt-3"
         >
           Return Book
         </button>

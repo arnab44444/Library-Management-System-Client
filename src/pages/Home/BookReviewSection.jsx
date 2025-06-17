@@ -38,7 +38,7 @@ const BookReviewSection = () => {
   };
 
   return (
-    <div className="p-6 bg-base-100 shadow-md rounded-xl space-y-6 max-w-5xl mx-auto mt-10">
+    <div className="bg-gray-400 p-6 bg-base-100 shadow-md rounded-xl space-y-6 max-w-5xl mx-auto mt-10">
       <h2 className="text-2xl font-bold text-center">📖 Book Reviews</h2>
 
       {/* Average Rating */}
