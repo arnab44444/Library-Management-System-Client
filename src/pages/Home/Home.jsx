@@ -17,14 +17,8 @@ const Home = () => {
     return (
         <div>
 
+         {/* etai imageSlider */}
         <Banner></Banner>
-
-        {/* <HomeAnimation></HomeAnimation> */}
-
-        {/* <ImageSlider></ImageSlider>  */}
-
-        
-
 
         <div className='mx-auto'>
             <Categories></Categories>
