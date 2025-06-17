@@ -51,7 +51,7 @@ const BorrowCard = ({ book, orders, setOrders }) => {
         <img
           src={image}
           alt={name}
-          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+          className=""
         />
       </figure>
 
@@ -80,3 +80,6 @@ const BorrowCard = ({ book, orders, setOrders }) => {
 };
 
 export default BorrowCard;
+
+
+// 11
