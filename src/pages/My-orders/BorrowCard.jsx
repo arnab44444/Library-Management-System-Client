@@ -52,20 +52,17 @@ const BorrowCard = ({ book, orders, setOrders }) => {
         />
       </figure> */}
 
-      <figure className="relative w-full" style={{ paddingTop: '75%' }}>
-  <img
-    src={image}
-    alt={name}
-    className="absolute top-0 left-0 w-full h-full object-cover rounded-t-2xl"
-  />
-</figure>
-
+      <figure className="relative w-full" style={{ paddingTop: "75%" }}>
+        <img
+          src={image}
+          alt={name}
+          className="absolute top-0 left-0 w-full h-full object-cover rounded-t-2xl"
+        />
+      </figure>
 
       {/* Book Info */}
       <div className="p-5 space-y-2 text-base-content dark:text-neutral-content">
-        <h2 className="text-lg font-bold text-primary">
-          {name}
-        </h2>
+        <h2 className="text-lg font-bold text-primary">{name}</h2>
         <p className="text-sm">
           <span className="font-semibold">Author:</span> {author}
         </p>
