@@ -16,7 +16,7 @@ const BorrowCard = ({ book, orders, setOrders }) => {
       confirmButtonText: "Yes, return it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/return_book/${_id}`, {
+        fetch(`https://library-client-ccb7c.web.app/return_book/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

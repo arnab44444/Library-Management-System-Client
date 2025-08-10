@@ -32,7 +32,7 @@ const BookDetails = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:3000/check-borrowed/${_id}?email=${user.email}`)
+        .get(`https://library-client-ccb7c.web.app/check-borrowed/${_id}?email=${user.email}`)
         .then((res) => {
           setHasBorrowed(res.data.hasBorrowed);
         })
@@ -53,7 +53,7 @@ const BookDetails = () => {
     };
 
     axios
-      .post(`http://localhost:3000/place-order/${_id}`, 
+      .post(`https://library-client-ccb7c.web.app/place-order/${_id}`, 
         orderInfo
 
       )

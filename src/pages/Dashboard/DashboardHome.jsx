@@ -15,12 +15,12 @@ const DashboardHome = () => {
         const token = await user.getIdToken();
 
         // total books
-        const booksRes = await fetch("http://localhost:3000/books");
+        const booksRes = await fetch("https://library-client-ccb7c.web.app/books");
         const booksData = await booksRes.json();
         setTotalBooksCount(booksData.length);
 
         // borrowed books
-        const borrowRes = await fetch(`http://localhost:3000/my-orders?email=${user.email}`, {
+        const borrowRes = await fetch(`https://library-client-ccb7c.web.app/my-orders?email=${user.email}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const borrowData = await borrowRes.json();

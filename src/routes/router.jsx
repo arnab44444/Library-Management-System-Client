@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         //path: '',
         index: true,
 
-        loader: () => fetch("http://localhost:3000/books"),
+        loader: () => fetch("https://library-client-ccb7c.web.app/books"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "allBook",
 
-        loader: () => fetch("http://localhost:3000/books"),
+        loader: () => fetch("https://library-client-ccb7c.web.app/books"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
       {
         path: "/updateBook/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/updateBook/${params.id}`),
+          fetch(`https://library-client-ccb7c.web.app/updateBook/${params.id}`),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
       
       {
         path: "/bookDetails/:id",
-        loader: ({ params }) => fetch(`http://localhost:3000/bookDetails/${params.id}`),
+        loader: ({ params }) => fetch(`https://library-client-ccb7c.web.app/bookDetails/${params.id}`),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
 
       {
         path: "/categorywiseBook/Fiction",
-        loader: () => fetch("http://localhost:3000/categorywiseBook/Fiction"),
+        loader: () => fetch("https://library-client-ccb7c.web.app/categorywiseBook/Fiction"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
 
       {
         path: "/categorywiseBook/novel",
-        loader: () => fetch("http://localhost:3000/categorywiseBook/Novel"),
+        loader: () => fetch("https://library-client-ccb7c.web.app/categorywiseBook/Novel"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -109,7 +109,7 @@ const router = createBrowserRouter([
 
       {
         path: "/categorywiseBook/History",
-        loader: () => fetch("http://localhost:3000/categorywiseBook/History"),
+        loader: () => fetch("https://library-client-ccb7c.web.app/categorywiseBook/History"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -118,7 +118,7 @@ const router = createBrowserRouter([
 
       {
         path: "/categorywiseBook/Thriller",
-        loader: () => fetch("http://localhost:3000/categorywiseBook/Thriller"),
+        loader: () => fetch("https://library-client-ccb7c.web.app/categorywiseBook/Thriller"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),

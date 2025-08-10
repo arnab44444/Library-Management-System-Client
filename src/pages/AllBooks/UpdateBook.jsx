@@ -23,7 +23,7 @@ const UpdateBook = () => {
       image,
     };
 
-    fetch(`http://localhost:3000/book/${data?._id}`, {
+    fetch(`https://library-client-ccb7c.web.app/book/${data?._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

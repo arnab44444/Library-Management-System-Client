@@ -17,7 +17,7 @@ const AddBook = () => {
 
     console.log(newBook)
 
-    // fetch("http://localhost:3000/books", {
+    // fetch("https://library-client-ccb7c.web.app/books", {
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",
@@ -28,7 +28,7 @@ const AddBook = () => {
     //   .then((data) => {
     //     if (data.insertedId) {
 
-    axios.post('http://localhost:3000/books', newBook)
+    axios.post('https://library-client-ccb7c.web.app/books', newBook)
       .then((res) => {
         console.log(res);
 
