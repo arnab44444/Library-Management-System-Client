@@ -32,7 +32,7 @@ const BookDetails = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`https://library-server-self-theta.vercel.app/check-borrowed/${_id}?email=${user.email}`)
+        .get(`http://localhost:3000/check-borrowed/${_id}?email=${user.email}`)
         .then((res) => {
           setHasBorrowed(res.data.hasBorrowed);
         })
@@ -53,7 +53,7 @@ const BookDetails = () => {
     };
 
     axios
-      .post(`https://library-server-self-theta.vercel.app/place-order/${_id}`, 
+      .post(`http://localhost:3000/place-order/${_id}`, 
         orderInfo
 
       )
@@ -72,7 +72,7 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 py-10 px-4">
+    <div className="min-h-screen mt-20 bg-base-200 py-10 px-4">
       <div className="max-w-5xl mx-auto bg-base-100 shadow-xl rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-10">
         <div className="w-full">
           <img

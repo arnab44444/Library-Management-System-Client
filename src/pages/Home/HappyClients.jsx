@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const HappyClients = () => {
   return (
     <section className="my-24 bg-gray-400">
-      <h3 className="text-5xl font-bold text-blue-600 text-center p-5 mb-12">
+      <h3 className="text-5xl font-bold text-blue-700 text-center p-5 mb-12">
         What Our Readers Say
       </h3>
 

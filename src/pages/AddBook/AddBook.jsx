@@ -17,7 +17,7 @@ const AddBook = () => {
 
     console.log(newBook)
 
-    // fetch("https://library-server-self-theta.vercel.app/books", {
+    // fetch("http://localhost:3000/books", {
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",
@@ -28,7 +28,7 @@ const AddBook = () => {
     //   .then((data) => {
     //     if (data.insertedId) {
 
-    axios.post('https://library-server-self-theta.vercel.app/books', newBook)
+    axios.post('http://localhost:3000/books', newBook)
       .then((res) => {
         console.log(res);
 

@@ -3,8 +3,7 @@ import { useLoaderData } from 'react-router';
 import Categories from './Categories/Categories';
 import BookReviewSection from './BookReviewSection';
 import About from './About';
-import ImageSlider from './ImageSlider';
-import HomeAnimation from './HomeAnimation';
+
 import Banner from './Banner';
 import HappyClients from './HappyClients';
 import StatsSection from './StatsSection';
@@ -22,7 +21,7 @@ const Home = () => {
 
         <div className='mx-auto'>
             <Categories></Categories>
-            <BookReviewSection></BookReviewSection>
+            {/* <BookReviewSection></BookReviewSection> */}
             <HappyClients></HappyClients>
             <About></About>
             <StatsSection></StatsSection>

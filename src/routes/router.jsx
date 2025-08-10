@@ -15,6 +15,11 @@ import Thriller from "../pages/Home/Categories/Thriller";
 import Fiction from "../pages/Home/Categories/Fiction";
 import BookDetails from "../pages/shared/BookDetails";
 import MyBorrow from "../pages/My-orders/MyBorrow";
+import RulesAndRegulations from "../pages/Rules/RulesAndRegulations";
+import Faq from "../pages/Faq/Faq";
+import DashboardLayout from "../layouts/DashboardLayout";
+import DashboardHome from "../pages/Dashboard/DashboardHome";
+import UpdateProfile from "../pages/Dashboard/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -26,25 +31,18 @@ const router = createBrowserRouter([
         //path: '',
         index: true,
 
-        loader: () => fetch("https://library-server-self-theta.vercel.app/books"),
+        loader: () => fetch("http://localhost:3000/books"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
         element: <Home></Home>,
       },
-      {
-        path: "addBook",
-        element: (
-          <PrivateRoute>
-            <AddBook></AddBook>
-          </PrivateRoute>
-        ),
-      },
+      
 
       {
         path: "allBook",
 
-        loader: () => fetch("https://library-server-self-theta.vercel.app/books"),
+        loader: () => fetch("http://localhost:3000/books"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -56,9 +54,22 @@ const router = createBrowserRouter([
       },
 
       {
+          path: "rules&regulations",
+          element: <RulesAndRegulations></RulesAndRegulations>
+      },
+
+      {
+        path: "faq",
+        element: <Faq></Faq>,
+
+      },
+
+
+
+      {
         path: "/updateBook/:id",
         loader: ({ params }) =>
-          fetch(`https://library-server-self-theta.vercel.app/updateBook/${params.id}`),
+          fetch(`http://localhost:3000/updateBook/${params.id}`),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -67,7 +78,7 @@ const router = createBrowserRouter([
       
       {
         path: "/bookDetails/:id",
-        loader: ({ params }) => fetch(`https://library-server-self-theta.vercel.app/bookDetails/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/bookDetails/${params.id}`),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -80,7 +91,7 @@ const router = createBrowserRouter([
 
       {
         path: "/categorywiseBook/Fiction",
-        loader: () => fetch("https://library-server-self-theta.vercel.app/categorywiseBook/Fiction"),
+        loader: () => fetch("http://localhost:3000/categorywiseBook/Fiction"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -89,7 +100,7 @@ const router = createBrowserRouter([
 
       {
         path: "/categorywiseBook/novel",
-        loader: () => fetch("https://library-server-self-theta.vercel.app/categorywiseBook/Novel"),
+        loader: () => fetch("http://localhost:3000/categorywiseBook/Novel"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -98,7 +109,7 @@ const router = createBrowserRouter([
 
       {
         path: "/categorywiseBook/History",
-        loader: () => fetch("https://library-server-self-theta.vercel.app/categorywiseBook/History"),
+        loader: () => fetch("http://localhost:3000/categorywiseBook/History"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
@@ -107,42 +118,13 @@ const router = createBrowserRouter([
 
       {
         path: "/categorywiseBook/Thriller",
-        loader: () => fetch("https://library-server-self-theta.vercel.app/categorywiseBook/Thriller"),
+        loader: () => fetch("http://localhost:3000/categorywiseBook/Thriller"),
         hydrateFallbackElement: (
           <span className="loading loading-bars loading-xl"></span>
         ),
         element: <Thriller></Thriller>,
       },
-
-      // {
-      //   path: 'my-orders',
-      //     element: (
-      //       <PrivateRoute>
-      //           <MyBorrow></MyBorrow>
-      //       </PrivateRoute>
-      //   )
-
-      // }
-
-
-      {
-        path: '/my-orders',
-        //path: 'my-orders/:email',
-        //   loader: ({ params }) => fetch(`https://library-server-self-theta.vercel.app/my-orders/${params.email}`),
-        // hydrateFallbackElement: (
-        //   <span className="loading loading-bars loading-xl"></span>
-        // ),
-        element: (
-            <PrivateRoute>
-                <MyBorrow></MyBorrow>
-            </PrivateRoute>
-        ),
-      },
-
-      
-      
-
-      
+ 
     ],
   },
 
@@ -159,6 +141,48 @@ const router = createBrowserRouter([
         path: "/auth/register",
         element: <Register></Register>,
       },
+    ],
+  },
+
+    {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true, // Default route for /dashboard
+        element: <DashboardHome></DashboardHome>,
+      },
+      
+      {
+        path: "addBook",
+        element: (
+          <PrivateRoute>
+            <AddBook></AddBook>
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: 'my-orders',
+      
+        element: (
+            <PrivateRoute>
+                <MyBorrow></MyBorrow>
+            </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "update-profile",
+        element: <UpdateProfile></UpdateProfile>,
+      },
+
+
+      
     ],
   },
 

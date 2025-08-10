@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const axiosInstance = axios.create({
-    baseURL : 'https://library-server-self-theta.vercel.app', // Replace with your API base URL
+    baseURL : 'http://localhost:3000', // Replace with your API base URL
     withCredentials: true,
 })
 

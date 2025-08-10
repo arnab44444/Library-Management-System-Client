@@ -42,7 +42,7 @@ const cardVariants = {
 const Categories = () => {
   return (
     <div className="max-w-7xl mx-auto px-5 py-10">
-      <h2 className="my-10 font-bold text-3xl text-center text-indigo-700">
+      <h2 className="my-10 font-bold text-3xl text-center text-blue-700">
         Categories
       </h2>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

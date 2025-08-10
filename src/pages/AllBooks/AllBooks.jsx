@@ -14,7 +14,7 @@ const AllBooks = () => {
     : books;
 
   return (
-    <div>
+    <div className="mt-30">
       {/* Top Controls */}
       <div className="flex flex-col sm:flex-row justify-between items-center px-4 mt-6 gap-4">
         {/* Filter Button */}
@@ -92,7 +92,7 @@ const AllBooks = () => {
       )}
 
       {viewType === "card" && (
-        <div className="px-4 mt-10 hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="px-4 mt-10 hidden sm:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {filteredBooks.map((book) => (
             <div
               key={book._id}

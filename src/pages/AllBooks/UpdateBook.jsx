@@ -23,7 +23,7 @@ const UpdateBook = () => {
       image,
     };
 
-    fetch(`https://library-server-self-theta.vercel.app/book/${data?._id}`, {
+    fetch(`http://localhost:3000/book/${data?._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -116,7 +116,7 @@ const UpdateBook = () => {
 
           <input
             type="submit"
-            className="btn w-full bg-green-500 hover:bg-green-800 hover:text-white"
+            className="btn w-full bg-blue-500 hover:bg-blue-800 hover:text-white"
             value="Submit"
           />
         </form>

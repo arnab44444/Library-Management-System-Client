@@ -16,12 +16,9 @@ const BorrowCard = ({ book, orders, setOrders }) => {
       confirmButtonText: "Yes, return it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://library-server-self-theta.vercel.app/return_book/${_id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`http://localhost:3000/return_book/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
@@ -47,17 +44,28 @@ const BorrowCard = ({ book, orders, setOrders }) => {
   return (
     <div className="card w-full md:w-80 bg-base-100 dark:bg-neutral shadow-lg border border-base-300 dark:border-neutral-content rounded-2xl overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
       {/* Book Image */}
-      <figure className="h-56 bg-base-200 dark:bg-neutral-focus object-cover">
+      {/* <figure className="h-56 bg-base-200 dark:bg-neutral-focus ">
         <img
           src={image}
           alt={name}
-          className=""
+          className="object-cover"
         />
-      </figure>
+      </figure> */}
+
+      <figure className="relative w-full" style={{ paddingTop: '75%' }}>
+  <img
+    src={image}
+    alt={name}
+    className="absolute top-0 left-0 w-full h-full object-cover rounded-t-2xl"
+  />
+</figure>
+
 
       {/* Book Info */}
       <div className="p-5 space-y-2 text-base-content dark:text-neutral-content">
-        <h2 className="text-lg font-bold text-primary dark:text-secondary">{name}</h2>
+        <h2 className="text-lg font-bold text-primary">
+          {name}
+        </h2>
         <p className="text-sm">
           <span className="font-semibold">Author:</span> {author}
         </p>
@@ -70,7 +78,7 @@ const BorrowCard = ({ book, orders, setOrders }) => {
 
         <button
           onClick={() => handleReturn(_id)}
-          className="btn btn-error btn-sm w-full mt-3"
+          className="btn btn-primary btn-sm w-full mt-3"
         >
           Return Book
         </button>
@@ -80,6 +88,5 @@ const BorrowCard = ({ book, orders, setOrders }) => {
 };
 
 export default BorrowCard;
-
 
 // 11
